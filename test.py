@@ -12,4 +12,7 @@ pl, pr = Port.A, Port.E
 motor_left, motor_right = Motor(pl), Motor(pr, positive_direction = Direction.COUNTERCLOCKWISE)
 db = DriveBase(motor_left, motor_right, 55, 113)
 
-db.straight(10*360)
+db.straight(100)
+db.turn(90)
+db.straight(-10)
+db.turn(-90)
