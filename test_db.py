@@ -3,22 +3,25 @@ from pybricks.pupdevices import Motor, ColorDistanceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch, run_task
-import math
+import umath as math
 
 hub = PrimeHub()
 
-async def curve(radius, angle, speed=100):
-        
-    diameter = 5.6
+async def curve(radius, angle, speed=200, clockwise: bool = True):
+    if angle < 0: angle = -angle; speed=-speed
+    diameter = 5.7
     axle = 11.3
 
     cl, cr = radius / (radius + axle / 2), (radius + axle) / (radius + axle / 2)
+    if not clockwise: cl, cr = cr, cl
     sl, sr = speed * cl, speed * cr
-    d = 2 * radius * math.pi * angle / 360
-    dl, dr = cl*d*360/diameter, cr*d*360/diameter
-    ml.run_angle(sl, dl)
-    await mr.run_angle(sr, dr)
+    d = 2 * (radius + axle / 2) * math.pi * (angle / 360)
+    dl, dr = cl*d/(diameter * math.pi)*360, cr*d/(diameter * math.pi)*360
+    ml.run_angle(sl, (dl))
+    await mr.run_angle(sr, (dr))
 
+async def main():
+    await curve(15, 180)
 if __name__ == "__main__":
-    ml, mr = Motor(Port.A), Motor(Port.E, positive_direction=Direction.COUNTERCLOCKWISE)
-    run_task(curve(20, 90))
+    mr, ml = Motor(Port.A), Motor(Port.E, positive_direction=Direction.COUNTERCLOCKWISE)
+    run_task(main())
