@@ -45,6 +45,11 @@ async def color_recognition():
 
 async def settings():
     # default_speed, acceleration, deceleration, PID, use_gyro
+    pass
+    
+async def forklift_arc():
+    # Arc with forklift
+    pass
 
 async def main():
     await curve(15, 180)
