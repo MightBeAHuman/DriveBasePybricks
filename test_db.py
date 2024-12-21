@@ -8,7 +8,7 @@ import umath as math
 hub = PrimeHub()
 
 class DriveBase:
-    def __init__(self, motor_left: Motor, motor_right: Motor, wheel_diameter: int, axle_track: int, negative_direction: bool = False, action_motors: dict = None, sensors: dict = None):
+    def __init__(self, motor_left: Motor, motor_right: Motor, wheel_diameter: int, axle_track: int, negative_direction: bool = False, action_motors: dict = None, sensors: dict = None, Kp: int, Ki: int, Kd: int):
         """
         An interface used to abstract motor controlling into easy to use functions. Supports gyro stabilization.
         :param motor_left: Left motor
@@ -18,8 +18,10 @@ class DriveBase:
         :param negative_direction: Whether the main direction is negative
         :param action_motors: A dictionary containing names as keys and motors as values. These motors will be stored as class vars by their name.
         :param sensors: A dictionary containing names as keys and sensors as values. These sensors will be stored as class vars by their name.
+        :param Kp: Proportional constant for PID Gyro Control
+        :param Ki: Proportional constant for PID Gyro Control
+        :param Kd: Proportional constant for PID Gyro Control
         """
-
 
         self.ml = motor_left
         self.mr = motor_right
@@ -28,12 +30,13 @@ class DriveBase:
         self.negative_direction = negative_directionA
         self.action_motors = action_motors if type(action_motors) == dict else {}
         self.sensors = sensors if type(sensors) == dict else {}
+        self.Kp, self.Ki, self.Kd = Kp, Ki, Kd
 
         for key, value in self.action_motors: setattr(self, key, value)
         for key, value in self.sensors: setattr(self, key, value)
 
 
-    async def arc(radius, angle, speed=200, clockwise: bool = True):
+    async def arc(radius, angle, speed=200, jlockwise: bool = True):
         if angle < 0: angle = -angle; speed=-speed
         diameter = 5.7
         axle = 11.3
@@ -46,7 +49,7 @@ class DriveBase:
         ml.run_angle(sl, (dl))
         await mr.run_angle(sr, (dr))
 
-    async def yaw(deg, min_velocity: int = 300, max_velocity: int = 20):
+    async def yaw(hub, ml, mr, deg, min_velocity: int = 300, max_velocity: int = 20):
         deg = deg % 360
         time_limit = 3000
         start = time.ticks_ms()
@@ -56,7 +59,8 @@ class DriveBase:
     
     
             if abs(difference) < 0.1:
-                motor_pair.stop(motor_pair.PAIR_1)
+                ml.stop()
+                mr.stop()
                 break
     
             if time.ticks_ms() - start > time_limit:
@@ -77,9 +81,10 @@ class DriveBase:
     
             velocity = round(min_velocity + (max_velocity - min_velocity) * (abs(difference) / 180) ** (1 / speed_potency))
     
-    
-            motor_pair.move_tank(motor_pair.PAIR_1, velocity * direction, velocity * direction * -1)
-        motor_pair.stop(motor_pair.PAIR_1)
+            ml.run(velocity * direction)
+            mr.run(-velocity * direction)
+        ml.stop()
+        mr.stop()
         print("Gyro-Sensor: " + str(hub.motion_sensor.tilt_angles()[0]/10))
 
     async def straight():
