@@ -50,7 +50,7 @@ class PIDController:
 
         return speed + val, -speed
 
-ma, me = Motor(Port.A), Motor(Port.E)
+ma, me = Motor(Port.F), Motor(Port.B)
 
 async def main():
     db = PIDController(hub, ma, me, 6, 0.0, 0.02)

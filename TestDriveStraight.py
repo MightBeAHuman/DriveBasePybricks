@@ -59,8 +59,8 @@ class PIDController:
 
         return p, i, d
 
-ma = Motor(Port.A)
-me = Motor(Port.E)
+ma = Motor(Port.F)
+me = Motor(Port.B)
 
 async def main():
     db = PIDController(hub, ma, me)
