@@ -8,9 +8,9 @@ import umath as math
 hub = PrimeHub()
 
 class DriveBase:
-    def __init__(self, motor_left: Motor, motor_right: Motor, wheel_diameter: int, axle_track: int, negative_direction: bool = False, action_motors: dict = None, sensors: dict = None, Kp: int, Ki: int, Kd: int):
+    def __init__(self, motor_left: Motor, motor_right: Motor, wheel_diameter: int, axle_track: int, negative_direction: bool = False, action_motors: dict = None, sensors: dict = None, Kp: int, Tn: int, Tv: int):
         """
-        An interface used to abstract motor controlling into easy to use functions. Supports gyro stabilization.
+        An interface used to abstract motor controlling into easy to use functions. Supports gyro stabilization using PID.
         :param motor_left: Left motor
         :param motor_right: Right motor
         :param wheel_diameter: Average wheel diameter
@@ -19,8 +19,8 @@ class DriveBase:
         :param action_motors: A dictionary containing names as keys and motors as values. These motors will be stored as class vars by their name.
         :param sensors: A dictionary containing names as keys and sensors as values. These sensors will be stored as class vars by their name.
         :param Kp: Proportional constant for PID Gyro Control
-        :param Ki: Proportional constant for PID Gyro Control
-        :param Kd: Proportional constant for PID Gyro Control
+        :param Tn: Kp / Tn equals the integral constant for PID Gyro Control (Tn is easier to tune intuitively)
+        :param Tv: Kp * Tv equals the derivative constant for PID Gyro Control (Tv is easier to tune intuitively)
         """
 
         self.ml = motor_left
@@ -30,13 +30,20 @@ class DriveBase:
         self.negative_direction = negative_directionA
         self.action_motors = action_motors if type(action_motors) == dict else {}
         self.sensors = sensors if type(sensors) == dict else {}
-        self.Kp, self.Ki, self.Kd = Kp, Ki, Kd
+        self.Kp, self.Tn, self.Tv = Kp, Tn, Tv
 
         for key, value in self.action_motors: setattr(self, key, value)
         for key, value in self.sensors: setattr(self, key, value)
 
 
-    async def arc(self, radius, angle, speed=200, jlockwise: bool = True):
+    async def arc(self, radius, angle, speed=200, clockwise: bool = True):
+        """
+        Move in an arc-like motion to a given arc angle by a given radius. Supports async movement.
+        :param radius: Arc radius towards the inner wheel.
+        :param angle: Final angle from starting position.
+        :param speed: The robots average speed along the midpoint between both wheels.
+        :param clockwise: Wether the robot should run the arc clockwise.
+        """
         if angle < 0: angle = -angle; speed=-speed
         diameter = 5.7
         axle = 11.3

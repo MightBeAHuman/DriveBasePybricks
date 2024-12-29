@@ -12,9 +12,10 @@ class PID:
         self.ml = ml
         self.mr = mr
         self.wheel_diameter = abs(wheel_diameter) if wheel_diameter is not None else 0
+        self.debug = []
 
-        self.Kp = 0.15
-        self.Tn = 1500
+        self.Kp = 0.04
+        self.Tn = 2400
         self.Tv = 250
         self.tuning_speed = 800
         self.speed_multiplier = 1
@@ -35,13 +36,16 @@ class PID:
 
         p *= self.Kp
         i *= self.Kp / self.Tn
-        d *= self.Tv * self.Kp
+        #d *= self.Tv * self.Kp
+        d = 0
         if debug: 
             print("P:" , p)
             print("Gyro:" , heading)
+            self.debug.append(heading)  
+            print("Avg:", sum(self.debug) / len(self.debug))
 
-        correction_ratio = self.sigmoid((p + i + d) * self.speed_multiplier * (self.tuning_speed / avg_speed )) 
-        return (2*avg_speed * (1 - correction_ratio), 2*avg_speed * correction_ratio)
+        correction_ratio = 2 * self.sigmoid((p + i + d) * self.speed_multiplier * (self.tuning_speed / avg_speed )) 
+        return (avg_speed * (2 - correction_ratio), avg_speed * correction_ratio)
 
     async def async_run_straight(self, speed, debug: bool = False):
         c = 1
@@ -53,10 +57,12 @@ class PID:
             self.mr.run(vr)
             await wait(1)
 
-    def run_straight(self, speed):
+    def run_straight(self, speed, debug: bool = False):
+        c = 1
         self.running = True
         while self.running:
-            vl, vr = self.calc_straight(speed)
+            if debug: c += 1
+            vl, vr = self.calc_straight(speed, c % 100 == 0)
             self.ml.run(vl)
             self.mr.run(vr)
 
@@ -75,14 +81,18 @@ async def main(pid):
     pid.stop()
 
 if __name__ == "__main__":
+    hub = PrimeHub()
     ma, me = Motor(Port.B, positive_direction = Direction.COUNTERCLOCKWISE), Motor(Port.F)
-    ma.run(800)
-    me.run(800)
-    wait(5000)
-    ma.stop()
-    me.stop()
-    wait(5000)
     pid = PID(ma, me)
-    print(pid.sigmoid(0))
-    #pid.run_straight(800)
-    run_task(multitask(pid.async_run_straight(1*800, True), main(pid), race=True))
+    pid.run_straight(800, True)
+    #d = []
+    #ma.run(800)
+    #me.run(800)
+    #c = 0
+    #while True:
+        #c += 1
+        #if c % 100 == 0:
+            #d.append(hub.imu.heading())
+            #print(sum(d) / len(d))
+
+    #run_task(multitask(pid.async_run_straight(1*800, True), main(pid), race=True))
