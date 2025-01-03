@@ -1,0 +1,9 @@
+Searching for any hub with Pybricks service...
+Limits: (1000, 2000, 199)
+PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Voltage: 7991
+Current: 133
+State: (-2246.17, -782.873, -73.7, False)
+Time: 3001
+Angle: -2244
