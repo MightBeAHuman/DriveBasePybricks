@@ -7,10 +7,11 @@ import umath as math
 
 hub = PrimeHub()
 
-def test_motor(duration, speed, repetitions, wait_duration = 1000):
+def test_motor(port, duration, speed, repetitions, wait_duration = 1000):
     print("Speed:", speed)
     print("Wait Duration:", wait_duration)
-    motor = Motor(Port.A)
+    print("Motor:", port)
+    motor = Motor(port)
     for i in range(repetitions):
         motor.reset_angle(0)
         
@@ -31,4 +32,4 @@ def test_motor(duration, speed, repetitions, wait_duration = 1000):
         wait(wait_duration)
 
 if __name__ == "__main__":
-    test_motor(3000, -800, 25, 3000)
+    test_motor(Port.A, 3000, -800, 25, 3000)

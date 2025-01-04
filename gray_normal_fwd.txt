@@ -1,0 +1,229 @@
+Searching for any hub with Pybricks service...
+Speed: 800
+Wait Duration: 3000
+Motor: Port.A
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8296
+Hub Current: 130
+Model State: (2244.476, 801.374, 67.4, False)
+Time: 3000
+Motor Angle: 2238
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8291
+Hub Current: 108
+Model State: (2245.941, 803.566, 118.6, False)
+Time: 3000
+Motor Angle: 2238
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8290
+Hub Current: 106
+Model State: (2245.82, 800.72, 149.6, False)
+Time: 3000
+Motor Angle: 2241
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8288
+Hub Current: 105
+Model State: (2242.873, 802.319, 61.5, False)
+Time: 3000
+Motor Angle: 2236
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8288
+Hub Current: 101
+Model State: (2242.795, 794.983, 86.5, False)
+Time: 3000
+Motor Angle: 2237
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8287
+Hub Current: 96
+Model State: (2242.507, 798.407, 97.9, False)
+Time: 3000
+Motor Angle: 2240
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8286
+Hub Current: 101
+Model State: (2240.817, 803.501, 65.9, False)
+Time: 3000
+Motor Angle: 2239
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8285
+Hub Current: 103
+Model State: (2242.41, 800.271, 117.1, False)
+Time: 3000
+Motor Angle: 2237
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8284
+Hub Current: 108
+Model State: (2245.053, 792.219, 83.6, False)
+Time: 3000
+Motor Angle: 2244
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8284
+Hub Current: 99
+Model State: (2241.846, 809.893, 84.6, False)
+Time: 3000
+Motor Angle: 2236
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8283
+Hub Current: 99
+Model State: (2241.913, 797.608, 61.1, False)
+Time: 3000
+Motor Angle: 2240
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8282
+Hub Current: 108
+Model State: (2240.862, 795.303, 104.5, False)
+Time: 3000
+Motor Angle: 2241
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8282
+Hub Current: 101
+Model State: (2239.485, 818.687, 304.8, False)
+Time: 3000
+Motor Angle: 2240
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8281
+Hub Current: 99
+Model State: (2238.041, 796.977, 68.1, False)
+Time: 3000
+Motor Angle: 2236
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8281
+Hub Current: 106
+Model State: (2243.154, 795.662, 103.5, False)
+Time: 3000
+Motor Angle: 2239
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8281
+Hub Current: 98
+Model State: (2242.818, 802.496, 73.4, False)
+Time: 3000
+Motor Angle: 2242
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8280
+Hub Current: 108
+Model State: (2242.007, 807.838, 108.0, False)
+Time: 3000
+Motor Angle: 2241
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8279
+Hub Current: 98
+Model State: (2239.189, 804.515, 92.6, False)
+Time: 3000
+Motor Angle: 2238
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8279
+Hub Current: 110
+Model State: (2239.849, 813.744, -35.1, False)
+Time: 3000
+Motor Angle: 2242
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8279
+Hub Current: 99
+Model State: (2241.855, 801.38, 50.6, False)
+Time: 3000
+Motor Angle: 2237
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8278
+Hub Current: 106
+Model State: (2241.41, 802.732, 83.1, False)
+Time: 3000
+Motor Angle: 2236
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8277
+Hub Current: 99
+Model State: (2240.969, 797.31, 117.1, False)
+Time: 3000
+Motor Angle: 2237
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8277
+Hub Current: 108
+Model State: (2241.247, 804.108, 58.0, False)
+Time: 3000
+Motor Angle: 2240
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8277
+Hub Current: 98
+Model State: (2238.142, 805.935, 56.1, False)
+Time: 3001
+Motor Angle: 2237
+
+Motor Limits: (1000, 2000, 199)
+Motor PID: (15117, 7558, 1889, 8, 15)
+Max Voltage: (9000,)
+Hub Voltage: 8276
+Hub Current: 110
+Model State: (2242.71, 797.342, 81.9, False)
+Time: 3000
+Motor Angle: 2238
+
